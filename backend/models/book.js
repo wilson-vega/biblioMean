@@ -7,7 +7,7 @@ const bookSchema = new mongoose.Schema({
   status: String,
   imageURL: String,
   date: {
-    type: date,
+    type: Date,
     default: Date.now,
   },
 });

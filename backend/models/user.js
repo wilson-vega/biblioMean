@@ -6,8 +6,12 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
 
-  autor: {
+  email: {
     type: String,
+  },
+
+  password: {
+    type: String
   },
 
   date: {
@@ -16,12 +20,12 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.method.generateJWT = function () {
+userSchema.methods.generateJWT = function () {
   return jwt.sign(
     {
       _id: this._id,
       name: this.name,
-      autor: this.autor,
+      email: this.email,
     },
     "secretKey"
   );
